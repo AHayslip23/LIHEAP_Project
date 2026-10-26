@@ -35,7 +35,14 @@ Run the notebooks in this order. Each reads and writes CSVs in the repository ro
 
 - Root: notebooks and the CSV/GeoJSON data they read and write
 - `figures/`: charts from the analysis notebooks; `figures/maps/` holds the spatial maps
-- `reports/`: final statistical report (PDF) and supporting write-ups (Word)
+- `reports/`: project deliverables as PDFs
+  - `Correlation_StatisticalReport.pdf`: final correlation analysis (lags, policy, demographics, sensitivity)
+  - `LIHEAP_DataDictionary.pdf`, `LIHEAP_DataQualityReport.pdf`: LIHEAP data documentation
+  - `DataIntegration_QualityAssessment.pdf`: integration of LIHEAP, CalFresh and food bank data
+  - `Demographic_Summary_Report.pdf`: census demographics by zip code
+  - `Policy_Changes_Inventory.pdf`, `Policy_Impact_Assessment.pdf`, `Policy_Timeline_Visualization.pdf`, `External_Factors_Log.pdf`: policy context
+  - `TimeLag_Methodology.pdf`: time-lag approach
+  - `Geographic_Disparity_Report.pdf`, `Spatial_Maps_Export.pdf`: spatial analysis and maps
 
 ## Setup
 
