@@ -1,0 +1,54 @@
+Feature,Group,Rationale,Missing_value_rule
+LIHEAP_t0,LIHEAP lag,Same-month enrollment; strongest within-zip link to CalFresh (r = 0.53),Outside window: 0 + flag
+LIHEAP_lag1,LIHEAP lag,Enrollment 1 month earlier; most useful leading indicator in the correlation analysis,zip_gap: 0; outside window: 0 + flag
+LIHEAP_lag2,LIHEAP lag,Enrollment 2 months earlier; tests a longer lead time,zip_gap: 0; outside window: 0 + flag
+LIHEAP_lag3,LIHEAP lag,Enrollment 3 months earlier; strongest cross-zip correlation with CalFresh (rho = 0.70),zip_gap: 0; outside window: 0 + flag
+LIHEAP_lag_mean_3,LIHEAP lag,Average of available lags; smooths noisy monthly counts,Mean of available lags; 0 if none
+LIHEAP_lag_momentum,LIHEAP lag,Lag 1 minus lag 2; whether enrollment is rising or falling,0 if either lag unknown
+LIHEAP_t0_observed,LIHEAP lag,1 if same-month LIHEAP is inside the data window,None
+LIHEAP_lag1_observed,LIHEAP lag,1 if lag 1 is inside the data window,None
+LIHEAP_lag2_observed,LIHEAP lag,1 if lag 2 is inside the data window,None
+LIHEAP_lag3_observed,LIHEAP lag,1 if lag 3 is inside the data window,None
+Poverty_Rate,Demographic,Core driver of need; moderates the LIHEAP-food bank link,Median of zips + Demo_Imputed
+Unemployment_Rate,Demographic,Job loss raises demand for both programs,Median of zips + Demo_Imputed
+Median_Rent_k,Demographic,Housing cost burden (thousands of $); weaker LIHEAP-food bank link in high-rent zips,Median of zips + Demo_Imputed
+Pct_Under_18,Demographic,Households with children are prioritized by food programs,Median of zips + Demo_Imputed
+Pct_65_Plus,Demographic,"Older residents use programs differently (fixed incomes, lower CalFresh uptake)",Median of zips + Demo_Imputed
+Pct_Single_Parent_HH,Demographic,Single-parent households face higher food insecurity,Median of zips + Demo_Imputed
+Pct_Living_Alone,Demographic,Single-person households have different assistance patterns,Median of zips + Demo_Imputed
+Avg_HH_Size,Demographic,Larger households need more food per enrollee,Median of zips + Demo_Imputed
+Log_Households,Demographic,"Controls for zip size, which inflates raw-total correlations",Median of zips + Demo_Imputed
+Demo_Imputed,Demographic,1 if census values were median-imputed (no ACS match),None
+LIHEAP_lag1_per_1k_HH,Demographic,Size-adjusted LIHEAP; separates need from population,0 if lag or households unknown
+Month,Temporal,Calendar month for seasonality,None
+Quarter,Temporal,Quarter for broader seasonality,None
+Month_sin,Temporal,Cyclical month encoding (December next to January),None
+Month_cos,Temporal,Cyclical month encoding (pair with Month_sin),None
+Months_Since_Start,Temporal,Linear trend across the study window,None
+CalFresh_lag1,Temporal,Last month's CalFresh; strong persistence baseline,0 + _missing flag
+CalFresh_same_month_last_year,Temporal,Seasonal baseline 12 months earlier,0 + _missing flag
+CalFresh_yoy_change_lag1,Temporal,Year-over-year change using past values only (t-1 vs t-13),0 + _missing flag
+FoodBank_lag1,Temporal,Last month's food bank pounds; persistence baseline,0 + _missing flag
+FoodBank_same_month_last_year,Temporal,Seasonal baseline 12 months earlier,0 + _missing flag
+FoodBank_yoy_change_lag1,Temporal,Year-over-year change using past values only (t-1 vs t-13),0 + _missing flag
+FoodBank_Policy_Active,Policy,Any food bank policy in effect that month,None
+CalFresh_Policy_Change,Policy,CalFresh policy changed that month,None
+LIHEAP_Policy_Change,Policy,LIHEAP policy changed that month,None
+FoodBank_Policy_Change,Policy,Food bank policy changed that month,None
+Any_Policy_Change,Policy,Any program's policy changed that month,None
+Policy_Period_EA_Ended,Policy,After CalFresh Emergency Allotments ended (Apr 2023),None
+Policy_Period_ABWD_Resumed,Policy,After ABAWD work rules resumed (Jul 2023),None
+Policy_Period_LIHEAP_FY24_Cut,Policy,After LIHEAP FY24 funding cut (Oct 2023),None
+LIHEAP_Direction_Increased,Policy,LIHEAP policy expected to raise enrollment,None
+LIHEAP_Direction_Decreased,Policy,LIHEAP policy expected to lower enrollment,None
+LIHEAPxPoverty,Interaction,LIHEAP effect stronger in high-poverty zips,0 when lag 1 unknown
+LIHEAPxUnemployment,Interaction,Energy hardship plus job loss compounds food need,0 when lag 1 unknown
+LIHEAPxRent,Interaction,High housing cost leaves less for food,0 when lag 1 unknown
+LIHEAPxEA_Ended,Interaction,LIHEAP-food link may change after Emergency Allotments ended,0 when lag 1 unknown
+LIHEAPperHHxPoverty,Interaction,Size-adjusted LIHEAP x poverty,0 when inputs unknown
+CalFresh_lag1_missing,Temporal,1 if CalFresh_lag1 had no history and was filled with 0,None
+CalFresh_same_month_last_year_missing,Temporal,1 if CalFresh_same_month_last_year had no history and was filled with 0,None
+CalFresh_yoy_change_lag1_missing,Temporal,1 if CalFresh_yoy_change_lag1 had no history and was filled with 0,None
+FoodBank_lag1_missing,Temporal,1 if FoodBank_lag1 had no history and was filled with 0,None
+FoodBank_same_month_last_year_missing,Temporal,1 if FoodBank_same_month_last_year had no history and was filled with 0,None
+FoodBank_yoy_change_lag1_missing,Temporal,1 if FoodBank_yoy_change_lag1 had no history and was filled with 0,None
