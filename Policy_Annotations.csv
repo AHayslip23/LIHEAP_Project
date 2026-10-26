@@ -1,0 +1,93 @@
+Month Year,CalFresh_Policy_Active,CalFresh_Change_Types,CalFresh_Expected_Direction,CalFresh_Policies,LIHEAP_Policy_Active,LIHEAP_Change_Types,LIHEAP_Expected_Direction,LIHEAP_Policies,FoodBank_Policy_Active,FoodBank_Change_Types,FoodBank_Expected_Direction,FoodBank_Policies,CalFresh_Data_Available,LIHEAP_Data_Available,FoodBank_Data_Available,Any_Policy_Active
+2018-01,No,,,,No,,,,No,,,,No,No,Yes,No
+2018-02,No,,,,No,,,,No,,,,No,No,Yes,No
+2018-03,No,,,,No,,,,No,,,,No,No,Yes,No
+2018-04,No,,,,No,,,,No,,,,No,No,Yes,No
+2018-05,No,,,,No,,,,No,,,,No,No,Yes,No
+2018-06,No,,,,No,,,,No,,,,No,No,Yes,No
+2018-07,No,,,,No,,,,No,,,,No,No,Yes,No
+2018-08,No,,,,No,,,,No,,,,No,No,Yes,No
+2018-09,No,,,,No,,,,No,,,,No,No,Yes,No
+2018-10,No,,,,No,,,,No,,,,No,No,Yes,No
+2018-11,No,,,,No,,,,No,,,,No,No,Yes,No
+2018-12,Yes,eligibility,uncertain,2018 Farm Bill,No,,,,No,,,,No,No,Yes,Yes
+2019-01,Yes,eligibility,uncertain,2018 Farm Bill,No,,,,No,,,,No,No,Yes,Yes
+2019-02,Yes,eligibility,uncertain,2018 Farm Bill,No,,,,No,,,,No,No,Yes,Yes
+2019-03,No,,,,No,,,,No,,,,No,No,Yes,No
+2019-04,No,,,,No,,,,No,,,,No,No,Yes,No
+2019-05,No,,,,No,,,,No,,,,No,No,Yes,No
+2019-06,Yes,eligibility,increase,SSI cash-out reversal,No,,,,No,,,,No,No,Yes,Yes
+2019-07,Yes,eligibility,increase,SSI cash-out reversal,No,,,,No,,,,No,No,Yes,Yes
+2019-08,Yes,eligibility,increase,SSI cash-out reversal,No,,,,No,,,,No,No,Yes,Yes
+2019-09,No,,,,No,,,,No,,,,No,No,Yes,No
+2019-10,No,,,,No,,,,No,,,,No,No,Yes,No
+2019-11,No,,,,No,,,,No,,,,No,No,Yes,No
+2019-12,No,,,,No,,,,No,,,,No,No,Yes,No
+2020-01,No,,,,No,,,,No,,,,Yes,No,Yes,No
+2020-02,No,,,,No,,,,No,,,,Yes,No,Yes,No
+2020-03,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions)",Yes,emergency_provision,decrease,CPUC utility shutoff moratorium,Yes,emergency_provision,decrease,Emergency Allotments,Yes,No,Yes,Yes
+2020-04,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions)",Yes,emergency_provision; funding,uncertain,CARES Act LIHEAP supplement ($900M); CPUC utility shutoff moratorium,Yes,emergency_provision,decrease,Emergency Allotments,Yes,No,Yes,Yes
+2020-05,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions)",Yes,emergency_provision; funding,uncertain,CARES Act LIHEAP supplement ($900M); CPUC utility shutoff moratorium,Yes,emergency_provision,decrease,Emergency Allotments,Yes,No,Yes,Yes
+2020-06,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions)",Yes,emergency_provision; funding,uncertain,CARES Act LIHEAP supplement ($900M); CPUC utility shutoff moratorium,Yes,emergency_provision,decrease,Emergency Allotments,Yes,No,Yes,Yes
+2020-07,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions)",Yes,emergency_provision; funding,uncertain,CARES Act LIHEAP supplement ($900M); CPUC utility shutoff moratorium,Yes,emergency_provision,decrease,Emergency Allotments,Yes,No,Yes,Yes
+2020-08,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions)",Yes,emergency_provision; funding,uncertain,CARES Act LIHEAP supplement ($900M); CPUC utility shutoff moratorium,Yes,emergency_provision,decrease,Emergency Allotments,Yes,No,Yes,Yes
+2020-09,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions)",Yes,emergency_provision; funding,uncertain,CARES Act LIHEAP supplement ($900M); CPUC utility shutoff moratorium,Yes,emergency_provision,decrease,Emergency Allotments,Yes,No,Yes,Yes
+2020-10,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions)",Yes,emergency_provision,decrease,CPUC utility shutoff moratorium,Yes,emergency_provision,decrease,Emergency Allotments,Yes,No,Yes,Yes
+2020-11,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions)",Yes,emergency_provision,decrease,CPUC utility shutoff moratorium,Yes,emergency_provision,decrease,Emergency Allotments,Yes,No,Yes,Yes
+2020-12,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions)",Yes,emergency_provision,decrease,CPUC utility shutoff moratorium,Yes,emergency_provision,decrease,Emergency Allotments,Yes,No,Yes,Yes
+2021-01,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions); Temporary 15% SNAP increase",Yes,emergency_provision,decrease,CPUC utility shutoff moratorium,Yes,emergency_provision,decrease,Emergency Allotments; Temporary 15% SNAP increase,Yes,No,Yes,Yes
+2021-02,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions); Temporary 15% SNAP increase",Yes,emergency_provision,decrease,CPUC utility shutoff moratorium,Yes,emergency_provision,decrease,Emergency Allotments; Temporary 15% SNAP increase,Yes,No,Yes,Yes
+2021-03,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions); Temporary 15% SNAP increase",Yes,emergency_provision; funding,uncertain,CPUC utility shutoff moratorium; ARPA LIHEAP supplement ($4.5B),Yes,emergency_provision,decrease,Emergency Allotments; Temporary 15% SNAP increase,Yes,No,Yes,Yes
+2021-04,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions); Temporary 15% SNAP increase",Yes,emergency_provision; funding,uncertain,CPUC utility shutoff moratorium; ARPA LIHEAP supplement ($4.5B),Yes,emergency_provision,decrease,Emergency Allotments; Temporary 15% SNAP increase,Yes,No,Yes,Yes
+2021-05,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions); Temporary 15% SNAP increase",Yes,emergency_provision; funding,uncertain,CPUC utility shutoff moratorium; ARPA LIHEAP supplement ($4.5B),Yes,emergency_provision,decrease,Emergency Allotments; Temporary 15% SNAP increase,Yes,No,Yes,Yes
+2021-06,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions); Temporary 15% SNAP increase",Yes,emergency_provision; funding,uncertain,CPUC utility shutoff moratorium; ARPA LIHEAP supplement ($4.5B),Yes,emergency_provision,decrease,Emergency Allotments; Temporary 15% SNAP increase,Yes,No,Yes,Yes
+2021-07,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions); Temporary 15% SNAP increase",Yes,emergency_provision; funding,uncertain,CPUC utility shutoff moratorium; ARPA LIHEAP supplement ($4.5B),Yes,emergency_provision,decrease,Emergency Allotments; Temporary 15% SNAP increase,Yes,No,Yes,Yes
+2021-08,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions); Temporary 15% SNAP increase",Yes,emergency_provision; funding,uncertain,CPUC utility shutoff moratorium; ARPA LIHEAP supplement ($4.5B),Yes,emergency_provision,decrease,Emergency Allotments; Temporary 15% SNAP increase,Yes,No,Yes,Yes
+2021-09,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions); Temporary 15% SNAP increase",Yes,emergency_provision; funding,uncertain,CPUC utility shutoff moratorium; ARPA LIHEAP supplement ($4.5B),Yes,emergency_provision,decrease,Emergency Allotments; Temporary 15% SNAP increase,Yes,No,Yes,Yes
+2021-10,Yes,benefit_level; emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions); Thrifty Food Plan update (+21%)",Yes,emergency_provision; funding,increase,ARPA LIHEAP supplement ($4.5B); Shutoff moratorium ends; payment plans,Yes,benefit_level; emergency_provision,decrease,Emergency Allotments; Thrifty Food Plan update (+21%),Yes,No,Yes,Yes
+2021-11,Yes,benefit_level; emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions); Thrifty Food Plan update (+21%)",Yes,emergency_provision; funding,increase,ARPA LIHEAP supplement ($4.5B); Shutoff moratorium ends; payment plans; IIJA LIHEAP funding (+$100M/yr),Yes,benefit_level; emergency_provision,decrease,Emergency Allotments; Thrifty Food Plan update (+21%),Yes,No,Yes,Yes
+2021-12,Yes,benefit_level; emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions); Thrifty Food Plan update (+21%)",Yes,emergency_provision; funding,increase,ARPA LIHEAP supplement ($4.5B); Shutoff moratorium ends; payment plans; IIJA LIHEAP funding (+$100M/yr),Yes,benefit_level; emergency_provision,decrease,Emergency Allotments; Thrifty Food Plan update (+21%),Yes,No,Yes,Yes
+2022-01,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions)",Yes,funding,increase,ARPA LIHEAP supplement ($4.5B); IIJA LIHEAP funding (+$100M/yr),Yes,emergency_provision,decrease,Emergency Allotments,Yes,No,Yes,Yes
+2022-02,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions)",Yes,funding,increase,ARPA LIHEAP supplement ($4.5B),Yes,emergency_provision,decrease,Emergency Allotments,Yes,No,Yes,Yes
+2022-03,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions)",Yes,funding,increase,ARPA LIHEAP supplement ($4.5B),Yes,emergency_provision,decrease,Emergency Allotments,Yes,No,Yes,Yes
+2022-04,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions)",Yes,funding,increase,ARPA LIHEAP supplement ($4.5B),Yes,emergency_provision,decrease,Emergency Allotments,Yes,No,Yes,Yes
+2022-05,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions)",Yes,funding,increase,ARPA LIHEAP supplement ($4.5B),Yes,emergency_provision,decrease,Emergency Allotments,Yes,No,Yes,Yes
+2022-06,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions)",Yes,funding,increase,ARPA LIHEAP supplement ($4.5B),Yes,emergency_provision,decrease,Emergency Allotments,Yes,No,Yes,Yes
+2022-07,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions)",Yes,funding,increase,ARPA LIHEAP supplement ($4.5B),Yes,emergency_provision,decrease,Emergency Allotments,Yes,No,Yes,Yes
+2022-08,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions)",Yes,funding,increase,ARPA LIHEAP supplement ($4.5B),Yes,emergency_provision,decrease,Emergency Allotments,Yes,No,Yes,Yes
+2022-09,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions)",Yes,funding,increase,ARPA LIHEAP supplement ($4.5B),Yes,emergency_provision,decrease,Emergency Allotments,Yes,No,Yes,Yes
+2022-10,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions)",Yes,funding,increase,FY2023 LIHEAP funding ($6.1B),Yes,emergency_provision,decrease,Emergency Allotments,Yes,No,Yes,Yes
+2022-11,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions)",Yes,funding,uncertain,FY2023 LIHEAP funding ($6.1B); CAPP round 2 utility debt credits,Yes,emergency_provision,decrease,Emergency Allotments,Yes,No,Yes,Yes
+2022-12,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions)",Yes,funding,uncertain,FY2023 LIHEAP funding ($6.1B); CAPP round 2 utility debt credits,Yes,emergency_provision,decrease,Emergency Allotments,Yes,No,Yes,Yes
+2023-01,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions)",Yes,funding,uncertain,FY2023 LIHEAP funding ($6.1B); CAPP round 2 utility debt credits,Yes,emergency_provision,decrease,Emergency Allotments,Yes,Yes,Yes,Yes
+2023-02,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions)",Yes,funding,increase,FY2023 LIHEAP funding ($6.1B),Yes,emergency_provision,decrease,Emergency Allotments,Yes,Yes,Yes,Yes
+2023-03,Yes,emergency_provision,increase,"Emergency Allotments; Pandemic SNAP waivers (ABAWD limit paused, student exemptions)",Yes,funding,increase,FY2023 LIHEAP funding ($6.1B),Yes,emergency_provision,decrease,Emergency Allotments,Yes,Yes,Yes,Yes
+2023-04,Yes,benefit_level; emergency_provision,uncertain,"Pandemic SNAP waivers (ABAWD limit paused, student exemptions); Emergency Allotments end",Yes,funding,increase,FY2023 LIHEAP funding ($6.1B),Yes,benefit_level,increase,Emergency Allotments end,Yes,Yes,Yes,Yes
+2023-05,Yes,benefit_level; emergency_provision,uncertain,"Pandemic SNAP waivers (ABAWD limit paused, student exemptions); Emergency Allotments end",Yes,funding,increase,FY2023 LIHEAP funding ($6.1B),Yes,benefit_level,increase,Emergency Allotments end,Yes,Yes,Yes,Yes
+2023-06,Yes,benefit_level; emergency_provision,uncertain,"Pandemic SNAP waivers (ABAWD limit paused, student exemptions); Emergency Allotments end",Yes,funding,increase,FY2023 LIHEAP funding ($6.1B),Yes,benefit_level,increase,Emergency Allotments end,Yes,Yes,Yes,Yes
+2023-07,Yes,eligibility,decrease,ABAWD time limit resumes; student exemptions end,Yes,funding,increase,FY2023 LIHEAP funding ($6.1B),Yes,eligibility,increase,ABAWD time limit resumes; student exemptions end,Yes,Yes,Yes,Yes
+2023-08,Yes,eligibility,decrease,ABAWD time limit resumes; student exemptions end,Yes,funding,increase,FY2023 LIHEAP funding ($6.1B),Yes,eligibility,increase,ABAWD time limit resumes; student exemptions end,Yes,No,Yes,Yes
+2023-09,Yes,eligibility,uncertain,ABAWD time limit resumes; student exemptions end; Fiscal Responsibility Act ABAWD changes,Yes,funding,increase,FY2023 LIHEAP funding ($6.1B),Yes,eligibility,increase,ABAWD time limit resumes; student exemptions end,Yes,No,Yes,Yes
+2023-10,Yes,eligibility,uncertain,Fiscal Responsibility Act ABAWD changes,Yes,funding,decrease,FY2024 LIHEAP funding cut to $4.125B,No,,,,Yes,No,Yes,Yes
+2023-11,Yes,eligibility,uncertain,Fiscal Responsibility Act ABAWD changes,Yes,funding,decrease,FY2024 LIHEAP funding cut to $4.125B,No,,,,Yes,No,Yes,Yes
+2023-12,Yes,eligibility,uncertain,Fiscal Responsibility Act ABAWD changes,Yes,funding,decrease,FY2024 LIHEAP funding cut to $4.125B,No,,,,Yes,No,Yes,Yes
+2024-01,Yes,eligibility,uncertain,Fiscal Responsibility Act ABAWD changes,No,,,,No,,,,Yes,No,Yes,Yes
+2024-02,Yes,eligibility,uncertain,Fiscal Responsibility Act ABAWD changes,No,,,,No,,,,Yes,No,Yes,Yes
+2024-03,Yes,eligibility,uncertain,Fiscal Responsibility Act ABAWD changes,No,,,,No,,,,Yes,No,Yes,Yes
+2024-04,Yes,eligibility,uncertain,Fiscal Responsibility Act ABAWD changes,No,,,,No,,,,Yes,No,Yes,Yes
+2024-05,Yes,eligibility,uncertain,Fiscal Responsibility Act ABAWD changes,No,,,,No,,,,Yes,No,Yes,Yes
+2024-06,Yes,eligibility,uncertain,Fiscal Responsibility Act ABAWD changes,No,,,,No,,,,Yes,No,Yes,Yes
+2024-07,Yes,eligibility,uncertain,Fiscal Responsibility Act ABAWD changes,No,,,,No,,,,Yes,No,Yes,Yes
+2024-08,Yes,eligibility,uncertain,Fiscal Responsibility Act ABAWD changes,No,,,,No,,,,Yes,No,Yes,Yes
+2024-09,Yes,eligibility,uncertain,Fiscal Responsibility Act ABAWD changes,No,,,,No,,,,Yes,No,Yes,Yes
+2024-10,Yes,eligibility,uncertain,Fiscal Responsibility Act ABAWD changes,No,,,,No,,,,Yes,No,Yes,Yes
+2024-11,No,,,,No,,,,No,,,,Yes,No,Yes,No
+2024-12,No,,,,No,,,,No,,,,Yes,No,Yes,No
+2025-01,No,,,,No,,,,No,,,,Yes,No,Yes,No
+2025-02,No,,,,No,,,,No,,,,Yes,No,Yes,No
+2025-03,No,,,,No,,,,No,,,,Yes,No,Yes,No
+2025-04,No,,,,Yes,funding,decrease,Federal LIHEAP staff dismissed; FY2025 funds held,No,,,,Yes,No,Yes,Yes
+2025-05,No,,,,Yes,funding,decrease,Federal LIHEAP staff dismissed; FY2025 funds held,No,,,,Yes,No,Yes,Yes
+2025-06,No,,,,No,,,,No,,,,Yes,No,Yes,No
+2025-07,Yes,eligibility,decrease,One Big Beautiful Bill Act,No,,,,Yes,eligibility,increase,One Big Beautiful Bill Act,Yes,No,Yes,Yes
+2025-08,Yes,eligibility,decrease,One Big Beautiful Bill Act,No,,,,Yes,eligibility,increase,One Big Beautiful Bill Act,Yes,No,Yes,Yes

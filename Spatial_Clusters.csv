@@ -1,0 +1,111 @@
+Zip_Code,City,LIHEAP_Cluster,LIHEAP_p,CalFresh_Cluster,CalFresh_p,FoodBank_Cluster,FoodBank_p,Combined_Cluster,Combined_p,Hot_In,Cold_In
+91901,Alpine,Not significant,0.4,Low outlier (Low-High),0.003,Low outlier (Low-High),0.026,Low outlier (Low-High),0.015,,
+91902,Bonita,Cold spot (Low-Low),0.018,Not significant,0.25,Not significant,0.458,Not significant,0.398,,LIHEAP
+91905,Boulevard,Not significant,0.283,Not significant,0.097,Hot spot (High-High),0.035,Not significant,0.061,FoodBank,
+91906,Campo,Not significant,0.112,Hot spot (High-High),0.007,Hot spot (High-High),0.019,Not significant,0.147,CalFresh + FoodBank,
+91910,Chula Vista,Cold spot (Low-Low),0.023,Not significant,0.199,Not significant,0.309,Not significant,0.496,,LIHEAP
+91911,Chula Vista,Cold spot (Low-Low),0.036,Not significant,0.309,Not significant,0.369,Not significant,0.317,,LIHEAP
+91913,Chula Vista,Cold spot (Low-Low),0.021,Not significant,0.372,Not significant,0.333,Not significant,0.302,,LIHEAP
+91914,Chula Vista,Not significant,0.153,Not significant,0.381,Not significant,0.492,Not significant,0.35,,
+91915,Chula Vista,Not significant,0.05,Not significant,0.308,Not significant,0.336,Not significant,0.238,,
+91916,Descanso,Not significant,0.435,Not significant,0.459,Not significant,0.114,Not significant,0.314,,
+91917,Dulzura,No data,,Hot spot (High-High),0.023,Low outlier (Low-High),0.036,Not significant,0.195,CalFresh,
+91931,Guatay,No data,,Not significant,0.393,Not significant,0.217,Not significant,0.47,,
+91932,Imperial Beach,Cold spot (Low-Low),0.037,Not significant,0.302,Not significant,0.252,Not significant,0.327,,LIHEAP
+91934,Jacumba,No data,,Hot spot (High-High),0.03,Not significant,0.118,Hot spot (High-High),0.036,CalFresh,
+91935,Jamul,Not significant,0.243,Not significant,0.255,Not significant,0.42,Not significant,0.495,,
+91941,La Mesa,Not significant,0.147,Not significant,0.055,Not significant,0.39,Hot spot (High-High),0.003,,
+91942,La Mesa,Not significant,0.182,Not significant,0.283,Not significant,0.14,Not significant,0.251,,
+91945,Lemon Grove,Not significant,0.352,Not significant,0.141,Not significant,0.411,Not significant,0.171,,
+91948,Mount Laguna,No data,,No data,,No data,,No data,,,
+91950,National City,Cold spot (Low-Low),0.014,Not significant,0.132,Not significant,0.091,Not significant,0.387,,LIHEAP
+91962,Pine Valley,No data,,Not significant,0.058,Low outlier (Low-High),0.027,Low outlier (Low-High),0.002,,
+91963,Potrero,No data,,Not significant,0.056,Not significant,0.195,Not significant,0.274,,
+91977,Spring Valley,Not significant,0.443,Not significant,0.221,Not significant,0.473,Not significant,0.176,,
+91978,Spring Valley,Not significant,0.28,Not significant,0.48,Not significant,0.453,Not significant,0.44,,
+91980,Tecate,No data,,No data,,No data,,No data,,,
+92003,Bonsall,Not significant,0.35,Not significant,0.257,Not significant,0.407,Not significant,0.471,,
+92004,Borrego Springs,Not significant,0.112,Not significant,0.16,Not significant,0.108,Hot spot (High-High),0.025,,
+92007,Cardiff by the Sea,Not significant,0.257,Cold spot (Low-Low),0.001,Not significant,0.181,Cold spot (Low-Low),0.016,,CalFresh
+92008,Carlsbad,Not significant,0.321,Cold spot (Low-Low),0.03,Not significant,0.112,Not significant,0.062,,CalFresh
+92009,Carlsbad,Not significant,0.052,Cold spot (Low-Low),0.005,Not significant,0.152,Cold spot (Low-Low),0.032,,CalFresh
+92010,Carlsbad,Not significant,0.24,Cold spot (Low-Low),0.015,Cold spot (Low-Low),0.039,Not significant,0.055,,CalFresh + FoodBank
+92011,Carlsbad,Cold spot (Low-Low),0.02,Cold spot (Low-Low),0.003,Not significant,0.214,Cold spot (Low-Low),0.013,,LIHEAP + CalFresh
+92014,Del Mar,Not significant,0.384,Cold spot (Low-Low),0.002,Not significant,0.147,Cold spot (Low-Low),0.017,,CalFresh
+92019,El Cajon,Not significant,0.449,Not significant,0.15,Not significant,0.378,Not significant,0.066,,
+92020,El Cajon,Not significant,0.31,Not significant,0.262,Not significant,0.376,Not significant,0.162,,
+92021,El Cajon,Not significant,0.336,Not significant,0.195,Not significant,0.475,Not significant,0.341,,
+92024,Encinitas,Not significant,0.143,Cold spot (Low-Low),0.001,Cold spot (Low-Low),0.003,Cold spot (Low-Low),0.001,,CalFresh + FoodBank
+92025,Escondido,Not significant,0.277,Not significant,0.079,Not significant,0.094,Not significant,0.14,,
+92026,Escondido,Not significant,0.355,Not significant,0.247,Not significant,0.386,Not significant,0.234,,
+92027,Escondido,Hot spot (High-High),0.034,Not significant,0.368,Not significant,0.413,Not significant,0.276,LIHEAP,
+92028,Fallbrook,Not significant,0.24,Not significant,0.312,Not significant,0.496,Not significant,0.239,,
+92029,Escondido,Not significant,0.252,Cold spot (Low-Low),0.004,Cold spot (Low-Low),0.042,Cold spot (Low-Low),0.026,,CalFresh + FoodBank
+92036,Julian,Hot spot (High-High),0.006,Not significant,0.108,Not significant,0.183,Not significant,0.062,LIHEAP,
+92037,La Jolla,Not significant,0.071,Not significant,0.083,Not significant,0.074,Not significant,0.155,,
+92040,Lakeside,Not significant,0.143,Not significant,0.443,Not significant,0.321,Not significant,0.498,,
+92054,Oceanside,Not significant,0.244,Cold spot (Low-Low),0.043,Not significant,0.363,Not significant,0.214,,CalFresh
+92055,Camp Pendleton,No data,,No data,,Not significant,0.418,No data,,,
+92056,Oceanside,Not significant,0.448,Not significant,0.189,Not significant,0.225,Not significant,0.459,,
+92057,Oceanside,Not significant,0.343,Not significant,0.164,Not significant,0.455,Not significant,0.395,,
+92058,Oceanside,Not significant,0.305,Not significant,0.379,Not significant,0.242,Not significant,0.443,,
+92059,Pala,Not significant,0.091,Not significant,0.482,Not significant,0.142,Not significant,0.34,,
+92060,Palomar Mountain,No data,,Not significant,0.089,Not significant,0.055,Low outlier (Low-High),0.001,,
+92061,Pauma Valley,Not significant,0.1,Not significant,0.396,Not significant,0.477,Not significant,0.421,,
+92064,Poway,Not significant,0.051,Not significant,0.136,Not significant,0.103,Not significant,0.081,,
+92065,Ramona,Not significant,0.075,Not significant,0.247,Not significant,0.276,Not significant,0.238,,
+92066,Ranchita,No data,,No data,,No data,,No data,,,
+92067,Rancho Santa Fe,High outlier (High-Low),0.001,Cold spot (Low-Low),0.001,Cold spot (Low-Low),0.002,Cold spot (Low-Low),0.001,,CalFresh + FoodBank
+92069,San Marcos,Not significant,0.333,Not significant,0.158,Not significant,0.176,Not significant,0.38,,
+92070,Santa Ysabel,Not significant,0.13,Not significant,0.407,Not significant,0.254,Not significant,0.238,,
+92071,Santee,Not significant,0.349,Not significant,0.485,Cold spot (Low-Low),0.042,Not significant,0.192,,FoodBank
+92075,Solana Beach,Not significant,0.267,Cold spot (Low-Low),0.001,Cold spot (Low-Low),0.001,Cold spot (Low-Low),0.004,,CalFresh + FoodBank
+92078,San Marcos,Cold spot (Low-Low),0.047,Cold spot (Low-Low),0.024,Not significant,0.123,Not significant,0.06,,LIHEAP + CalFresh
+92081,Vista,Not significant,0.18,Cold spot (Low-Low),0.048,Not significant,0.204,Not significant,0.174,,CalFresh
+92082,Valley Center,Hot spot (High-High),0.037,Not significant,0.374,Not significant,0.128,Not significant,0.153,LIHEAP,
+92083,Vista,Not significant,0.319,Not significant,0.14,Not significant,0.26,Not significant,0.38,,
+92084,Vista,Not significant,0.399,Not significant,0.183,Not significant,0.377,Not significant,0.419,,
+92086,Warner Springs,Hot spot (High-High),0.007,Not significant,0.104,Not significant,0.103,Not significant,0.076,LIHEAP,
+92091,Rancho Santa Fe,No data,,Cold spot (Low-Low),0.003,Not significant,0.085,Cold spot (Low-Low),0.01,,CalFresh
+92093,La Jolla,No data,,Not significant,0.204,No data,,No data,,,
+92096,San Marcos,No data,,No data,,No data,,No data,,,
+92101,San Diego,Not significant,0.348,Not significant,0.478,Not significant,0.082,Not significant,0.29,,
+92102,San Diego,Not significant,0.162,Not significant,0.053,Not significant,0.444,Not significant,0.05,,
+92103,San Diego,Not significant,0.203,Not significant,0.467,Not significant,0.305,Not significant,0.159,,
+92104,San Diego,Not significant,0.142,Not significant,0.164,Not significant,0.497,Not significant,0.065,,
+92105,San Diego,Not significant,0.178,Not significant,0.153,Not significant,0.369,Not significant,0.079,,
+92106,San Diego,Not significant,0.489,Not significant,0.491,Not significant,0.279,Not significant,0.435,,
+92107,San Diego,Cold spot (Low-Low),0.039,Not significant,0.073,Not significant,0.235,Not significant,0.096,,LIHEAP
+92108,San Diego,Not significant,0.389,Not significant,0.259,Not significant,0.195,Not significant,0.48,,
+92109,San Diego,Cold spot (Low-Low),0.026,Not significant,0.084,Not significant,0.096,Not significant,0.051,,LIHEAP
+92110,San Diego,Not significant,0.456,Not significant,0.184,Cold spot (Low-Low),0.036,Not significant,0.239,,FoodBank
+92111,San Diego,Not significant,0.491,Not significant,0.272,Not significant,0.231,Not significant,0.428,,
+92113,San Diego,Not significant,0.439,Not significant,0.139,Not significant,0.425,Not significant,0.25,,
+92114,San Diego,Not significant,0.134,Hot spot (High-High),0.023,Not significant,0.363,Hot spot (High-High),0.009,CalFresh,
+92115,San Diego,Not significant,0.106,Not significant,0.225,Not significant,0.401,Hot spot (High-High),0.045,,
+92116,San Diego,Not significant,0.079,Not significant,0.22,Not significant,0.286,Not significant,0.129,,
+92117,San Diego,Not significant,0.291,Not significant,0.237,Not significant,0.056,Not significant,0.176,,
+92118,Coronado,Not significant,0.272,Low outlier (Low-High),0.047,Not significant,0.414,Not significant,0.105,,
+92119,San Diego,Not significant,0.44,Not significant,0.499,Not significant,0.21,Not significant,0.449,,
+92120,San Diego,Not significant,0.127,Not significant,0.408,Not significant,0.127,Not significant,0.391,,
+92121,San Diego,Cold spot (Low-Low),0.005,Cold spot (Low-Low),0.003,High outlier (High-Low),0.031,High outlier (High-Low),0.002,,LIHEAP + CalFresh
+92122,San Diego,Not significant,0.231,Not significant,0.142,Not significant,0.169,Not significant,0.224,,
+92123,San Diego,Not significant,0.155,Not significant,0.373,High outlier (High-Low),0.044,Not significant,0.498,,
+92124,San Diego,Not significant,0.327,Not significant,0.239,Not significant,0.166,Not significant,0.437,,
+92126,San Diego,Not significant,0.124,Cold spot (Low-Low),0.026,Not significant,0.112,Not significant,0.153,,CalFresh
+92127,San Diego,Not significant,0.247,Cold spot (Low-Low),0.002,Not significant,0.085,Cold spot (Low-Low),0.008,,CalFresh
+92128,San Diego,Not significant,0.108,Cold spot (Low-Low),0.023,Not significant,0.125,Cold spot (Low-Low),0.037,,CalFresh
+92129,San Diego,Not significant,0.059,Cold spot (Low-Low),0.006,Not significant,0.181,Cold spot (Low-Low),0.03,,CalFresh
+92130,San Diego,Not significant,0.182,Cold spot (Low-Low),0.005,Not significant,0.154,Not significant,0.053,,CalFresh
+92131,San Diego,Cold spot (Low-Low),0.018,Cold spot (Low-Low),0.035,Not significant,0.105,Cold spot (Low-Low),0.036,,LIHEAP + CalFresh
+92134,San Diego,No data,,No data,,No data,,No data,,,
+92135,San Diego,No data,,No data,,No data,,No data,,,
+92136,San Diego,No data,,No data,,Not significant,0.285,No data,,,
+92139,San Diego,Not significant,0.074,Not significant,0.142,Not significant,0.296,Not significant,0.338,,
+92140,San Diego,No data,,No data,,Not significant,0.463,No data,,,
+92145,San Diego,No data,,No data,,Not significant,0.242,No data,,,
+92154,San Diego,Cold spot (Low-Low),0.012,Not significant,0.059,Not significant,0.375,Not significant,0.332,,LIHEAP
+92155,San Diego,No data,,No data,,No data,,No data,,,
+92161,San Diego,No data,,No data,,No data,,No data,,,
+92173,San Ysidro,Not significant,0.306,Not significant,0.197,Not significant,0.348,Not significant,0.421,,
+92182,San Diego,No data,,No data,,No data,,No data,,,

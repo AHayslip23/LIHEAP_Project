@@ -1,0 +1,15 @@
+Dataset,Field(s),Transformation,Unit Conversion?,Reason / Notes
+"FoodBank, LIHEAP, CalFresh (all)",Zip Code,"Cast to string, zero-padded to 5 digits (.str.zfill(5))",No,Prevents join misses caused by integer-vs-string or dropped leading zeros before merging on Zip Code.
+FoodBank,"Source (FSD, SDFB) -> FSD_Pounds, SDFB_Pounds",Pivoted long to wide on the Source column,No,"Source data has one row per (Zip Code, Month Year, Source); pivot gives one row per zip/month with separate columns for each source."
+FoodBank,"FSD_Pounds, SDFB_Pounds -> Total_Pounds_Distributed","Row-wise sum, skipna=True",No,"A zip/month with only one source reporting still gets a non-null total instead of being treated as zero/missing for the other source. Pounds units unchanged, pure aggregation."
+FoodBank,Any_Outlier -> FoodBank_Outlier,Collapsed row-level flag to zip/month level via .any(),No,"If either source (FSD or SDFB) was flagged as an outlier for that zip/month, the combined row is flagged."
+CalFresh,"Calfresh_Dollars, Calfresh_Meal_Cost, Calfresh_Meals, Calfresh_Outlier","Pass-through, column renamed only",No,No reshaping or unit conversion applied; values used as-is from CalFresh_cleaned.csv.
+LIHEAP,"LIHEAP_Enrollment_Count, LIHEAP_Outlier","Pass-through, column renamed only",No,No reshaping or unit conversion applied; values used as-is from LIHEAP_validated.csv.
+LIHEAP,Enrollment_Count -> LIHEAP_Enrollment_Count,Column rename,No,Namespaced to avoid ambiguity once merged with the other two datasets.
+LIHEAP,Outlier -> LIHEAP_Outlier,Column rename,No,Namespaced to avoid ambiguity once merged with the other two datasets.
+CalFresh,Any_Outlier -> Calfresh_Outlier,Column rename,No,Namespaced to avoid ambiguity once merged with the other two datasets.
+CalFresh,Calfresh Dollars -> Calfresh_Dollars,Column rename (space -> underscore),No,Naming consistency across the merged output.
+CalFresh,Meal Cost -> Calfresh_Meal_Cost,"Column rename (space -> underscore, source-namespaced)",No,Naming consistency across the merged output.
+CalFresh,Calfresh Meals -> Calfresh_Meals,Column rename (space -> underscore),No,Naming consistency across the merged output.
+FoodBank,"FSD, SDFB -> FSD_Pounds, SDFB_Pounds",Column rename (post-pivot),No,Clarifies units (pounds) now that Source is no longer a labeled column after the pivot.
+"CalFresh, LIHEAP, FoodBank (merge)","Zip Code, Month Year (join keys)","Outer join across all three on ['Zip Code', 'Month Year']",No,"A zip/month present in only one source still appears in the merged output, with NaN for the datasets that had no record. Preserves visibility into coverage gaps rather than dropping them, consistent with the LIHEAP decision to retain gaps rather than impute/exclude."

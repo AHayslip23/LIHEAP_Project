@@ -1,0 +1,26 @@
+policy,program,change_type,start_month,end_month,expected_direction,rationale
+2018 Farm Bill,CalFresh,eligibility,2018-12,2019-02,uncertain,Kept ABAWD limits; cut state exemption share 15% to 12%
+SSI cash-out reversal,CalFresh,eligibility,2019-06,2019-08,increase,"About 500,000 SSI recipients newly eligible statewide"
+Emergency Allotments,CalFresh,emergency_provision,2020-03,2023-03,increase,Every household raised to maximum benefit; makes enrolling more worthwhile
+Emergency Allotments,FoodBank,emergency_provision,2020-03,2023-03,decrease,Larger food benefits reduce need for food bank support
+"Pandemic SNAP waivers (ABAWD limit paused, student exemptions)",CalFresh,emergency_provision,2020-03,2023-06,increase,Work-rule time limit paused; more students eligible
+Temporary 15% SNAP increase,CalFresh,emergency_provision,2021-01,2021-09,increase,Higher maximum benefit
+Temporary 15% SNAP increase,FoodBank,emergency_provision,2021-01,2021-09,decrease,Higher food benefits
+Thrifty Food Plan update (+21%),CalFresh,benefit_level,2021-10,2021-12,increase,Permanent benefit increase
+Thrifty Food Plan update (+21%),FoodBank,benefit_level,2021-10,2021-12,decrease,Permanent benefit increase
+Emergency Allotments end,CalFresh,benefit_level,2023-04,2023-06,uncertain,Benefits fall about $163/household but eligibility unchanged
+Emergency Allotments end,FoodBank,benefit_level,2023-04,2023-06,increase,Households replace lost benefits with food bank support
+ABAWD time limit resumes; student exemptions end,CalFresh,eligibility,2023-07,2023-09,decrease,Work rules return after the Public Health Emergency
+ABAWD time limit resumes; student exemptions end,FoodBank,eligibility,2023-07,2023-09,increase,People losing CalFresh turn to food banks
+Fiscal Responsibility Act ABAWD changes,CalFresh,eligibility,2023-09,2024-10,uncertain,Age limit rises 49 to 54 (restriction) but new exemptions added (expansion)
+One Big Beautiful Bill Act,CalFresh,eligibility,2025-07,2025-09,decrease,Work rules extended to ages 18-64; exemptions removed
+One Big Beautiful Bill Act,FoodBank,eligibility,2025-07,2025-09,increase,People losing CalFresh turn to food banks
+CARES Act LIHEAP supplement ($900M),LIHEAP,funding,2020-04,2020-09,increase,FY2020 supplemental funding
+CPUC utility shutoff moratorium,LIHEAP,emergency_provision,2020-03,2021-09,decrease,No shutoff threat reduces urgent applications
+ARPA LIHEAP supplement ($4.5B),LIHEAP,funding,2021-03,2022-09,increase,Supplemental funding available through FY2022
+Shutoff moratorium ends; payment plans,LIHEAP,emergency_provision,2021-10,2021-12,increase,Shutoffs possible again for households with arrears
+IIJA LIHEAP funding (+$100M/yr),LIHEAP,funding,2021-11,2022-01,increase,Added annual funding FY2022-FY2026
+FY2023 LIHEAP funding ($6.1B),LIHEAP,funding,2022-10,2023-09,increase,"Highest regular-year funding, incl. $2B supplemental"
+CAPP round 2 utility debt credits,LIHEAP,funding,2022-11,2023-01,decrease,"Arrears cleared, reducing need for bill help"
+FY2024 LIHEAP funding cut to $4.125B,LIHEAP,funding,2023-10,2023-12,decrease,Less funding for assistance
+Federal LIHEAP staff dismissed; FY2025 funds held,LIHEAP,funding,2025-04,2025-05,decrease,"Payments to states delayed until May 1, 2025"

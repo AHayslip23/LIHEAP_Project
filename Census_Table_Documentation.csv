@@ -1,0 +1,16 @@
+Variable Code,Census Table,Table Name,Renamed Column
+B01003_001E,B01003,Total Population,Total_Population
+"B01001_003E–006E, 027E–030E",B01001,Sex by Age,Population_Under_18
+"B01001_007E–019E, 031E–043E",B01001,Sex by Age,Population_18_to_64
+"B01001_020E–025E, 044E–049E",B01001,Sex by Age,Population_65_Plus
+B11001_001E,B11001,Household Type (Including Living Alone),Total_Households
+B11001_002E,B11001,Household Type (Including Living Alone),Family_Households
+B11001_007E,B11001,Household Type (Including Living Alone),Nonfamily_Households
+B11001_008E,B11001,Household Type (Including Living Alone),Householder_Living_Alone
+B11003_010E,B11003,Family Type by Presence and Age of Own Children Under 18,Single_Father_Households_With_Own_Children_Under18
+B11003_016E,B11003,Family Type by Presence and Age of Own Children Under 18,Single_Mother_Households_With_Own_Children_Under18
+B25064_001E,B25064,Median Gross Rent,Median_Gross_Rent
+B25088_002E,B25088,Median Monthly Housing Costs (Owner-Occupied),Median_Monthly_Owner_Cost_With_Mortgage
+B25088_003E,B25088,Median Monthly Housing Costs (Owner-Occupied),Median_Monthly_Owner_Cost_No_Mortgage
+S1701_C03_001E,S1701,Poverty Status in the Past 12 Months,Poverty_Rate_Pct
+S2301_C04_001E,S2301,Employment Status,Unemployment_Rate_Pct

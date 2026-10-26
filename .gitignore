@@ -1,0 +1,14 @@
+# Secrets
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Large files (over GitHub's 100 MB limit or regenerable)
+Assistance_Spatial.geojson
+*.zip
+
+# Record-level LIHEAP data (kept out of version control)
+LIHEAP_2023_2025.csv
+LIHEAP_standardized.csv
+missing_or_invalid_zip.csv

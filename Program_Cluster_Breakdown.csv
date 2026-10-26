@@ -1,0 +1,96 @@
+Program,Category,City,Zip_Code
+LIHEAP,Hot spot,Escondido,92027
+LIHEAP,Hot spot,Julian,92036
+LIHEAP,Hot spot,Valley Center,92082
+LIHEAP,Hot spot,Warner Springs,92086
+LIHEAP,Cold spot,Bonita,91902
+LIHEAP,Cold spot,Carlsbad,92011
+LIHEAP,Cold spot,Chula Vista,91910
+LIHEAP,Cold spot,Chula Vista,91911
+LIHEAP,Cold spot,Chula Vista,91913
+LIHEAP,Cold spot,Imperial Beach,91932
+LIHEAP,Cold spot,National City,91950
+LIHEAP,Cold spot,San Diego,92107
+LIHEAP,Cold spot,San Diego,92109
+LIHEAP,Cold spot,San Diego,92121
+LIHEAP,Cold spot,San Diego,92131
+LIHEAP,Cold spot,San Diego,92154
+LIHEAP,Cold spot,San Marcos,92078
+LIHEAP,No data,Camp Pendleton,92055
+LIHEAP,No data,Dulzura,91917
+LIHEAP,No data,Guatay,91931
+LIHEAP,No data,Jacumba,91934
+LIHEAP,No data,La Jolla,92093
+LIHEAP,No data,Mount Laguna,91948
+LIHEAP,No data,Palomar Mountain,92060
+LIHEAP,No data,Pine Valley,91962
+LIHEAP,No data,Potrero,91963
+LIHEAP,No data,Ranchita,92066
+LIHEAP,No data,Rancho Santa Fe,92091
+LIHEAP,No data,San Diego,92134
+LIHEAP,No data,San Diego,92135
+LIHEAP,No data,San Diego,92136
+LIHEAP,No data,San Diego,92140
+LIHEAP,No data,San Diego,92145
+LIHEAP,No data,San Diego,92155
+LIHEAP,No data,San Diego,92161
+LIHEAP,No data,San Diego,92182
+LIHEAP,No data,San Marcos,92096
+LIHEAP,No data,Tecate,91980
+CalFresh,Hot spot,Campo,91906
+CalFresh,Hot spot,Dulzura,91917
+CalFresh,Hot spot,Jacumba,91934
+CalFresh,Hot spot,San Diego,92114
+CalFresh,Cold spot,Cardiff by the Sea,92007
+CalFresh,Cold spot,Carlsbad,92008
+CalFresh,Cold spot,Carlsbad,92009
+CalFresh,Cold spot,Carlsbad,92010
+CalFresh,Cold spot,Carlsbad,92011
+CalFresh,Cold spot,Del Mar,92014
+CalFresh,Cold spot,Encinitas,92024
+CalFresh,Cold spot,Escondido,92029
+CalFresh,Cold spot,Oceanside,92054
+CalFresh,Cold spot,Rancho Santa Fe,92067
+CalFresh,Cold spot,Rancho Santa Fe,92091
+CalFresh,Cold spot,San Diego,92121
+CalFresh,Cold spot,San Diego,92126
+CalFresh,Cold spot,San Diego,92127
+CalFresh,Cold spot,San Diego,92128
+CalFresh,Cold spot,San Diego,92129
+CalFresh,Cold spot,San Diego,92130
+CalFresh,Cold spot,San Diego,92131
+CalFresh,Cold spot,San Marcos,92078
+CalFresh,Cold spot,Solana Beach,92075
+CalFresh,Cold spot,Vista,92081
+CalFresh,No data,Camp Pendleton,92055
+CalFresh,No data,Mount Laguna,91948
+CalFresh,No data,Ranchita,92066
+CalFresh,No data,San Diego,92134
+CalFresh,No data,San Diego,92135
+CalFresh,No data,San Diego,92136
+CalFresh,No data,San Diego,92140
+CalFresh,No data,San Diego,92145
+CalFresh,No data,San Diego,92155
+CalFresh,No data,San Diego,92161
+CalFresh,No data,San Diego,92182
+CalFresh,No data,San Marcos,92096
+CalFresh,No data,Tecate,91980
+FoodBank,Hot spot,Boulevard,91905
+FoodBank,Hot spot,Campo,91906
+FoodBank,Cold spot,Carlsbad,92010
+FoodBank,Cold spot,Encinitas,92024
+FoodBank,Cold spot,Escondido,92029
+FoodBank,Cold spot,Rancho Santa Fe,92067
+FoodBank,Cold spot,San Diego,92110
+FoodBank,Cold spot,Santee,92071
+FoodBank,Cold spot,Solana Beach,92075
+FoodBank,No data,La Jolla,92093
+FoodBank,No data,Mount Laguna,91948
+FoodBank,No data,Ranchita,92066
+FoodBank,No data,San Diego,92134
+FoodBank,No data,San Diego,92135
+FoodBank,No data,San Diego,92155
+FoodBank,No data,San Diego,92161
+FoodBank,No data,San Diego,92182
+FoodBank,No data,San Marcos,92096
+FoodBank,No data,Tecate,91980
