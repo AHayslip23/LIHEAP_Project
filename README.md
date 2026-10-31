@@ -141,6 +141,28 @@ CENSUS_API_KEY=your_key_here
 - Updated every notebook to read and write datasets in `data/` and to save charts in `figures/` (spatial maps in `figures/maps/`).
 - Updated the README's pipeline and layout sections.
 
+**Commit #5: Predictive modeling (checkpoint 8)**
+- Completed `Predictive_Modeling.ipynb` with the modeling part of the project. Two regression problems predict CalFresh dollars and food bank pounds one month ahead for each zip code.
+- Trained three model types (linear regression, random forest, histogram gradient boosting), each with and without the Emergency Allotment policy indicators.
+- Tuned and validated with expanding-window time-series cross-validation (train on earlier months, validate on the next). February–June 2023 is used for training and July–August 2023 is held out as the test set.
+- Added evaluation against a naive "same as last month" baseline:
+  - Metrics by policy regime (Emergency Allotment transition vs post-transition).
+  - 90% prediction intervals.
+  - Residuals around policy dates.
+  - Permutation feature importance, and whether policy indicators improve accuracy.
+- Added conclusions for both targets and recommendations for handling future policy changes.
+
+**Commit #4: Feature engineering**
+- Added `Predictive_Modeling.ipynb` with the feature-engineering steps:
+  - LIHEAP lags (t-1 to t-3).
+  - Outcome history.
+  - Census demographic indicators.
+  - Temporal and year-over-year features.
+  - Policy-change indicators.
+  - Interaction terms.
+  - Consistent missing-value handling.
+- Added its outputs: `Predictive_Features.csv` (the modeling dataset) and `Feature_Dictionary.csv` (a description of every feature).
+
 **Commit #2: Project deliverables added to `reports/`**
 - Replaced the three Word documents (`DataIntegration_QualityAssessment`, `Demographic_Summary_Report`, `TimeLag_Methodology`) with PDF versions.
 - Added eight more deliverables as PDFs: `LIHEAP_DataDictionary`, `LIHEAP_DataQualityReport`, `Policy_Changes_Inventory`, `Policy_Impact_Assessment`, `Policy_Timeline_Visualization`, `External_Factors_Log`, `Geographic_Disparity_Report` and `Spatial_Maps_Export`. These join `Correlation_StatisticalReport`, which was added in Commit #1.
