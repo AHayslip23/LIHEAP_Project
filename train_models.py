@@ -22,7 +22,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import FunctionTransformer, StandardScaler
 
 #load in the data 
-DATA_PATH = Path("data")/"Predictive_Features.csv"
+DATA_PATH = Path("data")/"Modeling"/"Predictive_Features.csv"
 OUT = Path("models") / "scenario_models.joblib"
 
 #define regression model features 
