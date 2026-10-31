@@ -18,7 +18,7 @@ import numpy as np
 import pandas as pd 
 
 MODEL_PATH = Path("models") / "scenario_models.joblib"
-DATA_PATH = Path("data") / "Predictive_Features.csv"
+DATA_PATH = Path("data") / "Modeling" / "Predictive_Features.csv"
 
 #define lIHEAP scaled features
 LIHEAP_SCALED = ["LIHEAP_lag1", "LIHEAP_lag2", "LIHEAP_lag3", "LIHEAP_lag1_per_1k_HH", "LIHEAPxPoverty", "LIHEAPxRent"]

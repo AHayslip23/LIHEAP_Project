@@ -17,23 +17,30 @@ Run the notebooks in `notebooks/` in this order, with `notebooks/` as the workin
 
 | Step | Notebook | Main output |
 |---|---|---|
-| 1 | `Data Cleaning LIHEAP.ipynb` | `LIHEAP_validated.csv` |
-| 2 | `Calfresh Data Cleaning.ipynb` | `CalFresh_cleaned.csv` |
-| 3 | `Food Banks Data Cleaning.ipynb` | `FoodBank_cleaned.csv` |
-| 4 | `Coverage Matrix + Standardization of Data Sets.ipynb` | `Assistance_Integrated.csv` |
-| 5 | `Census_Demographic_Pull.ipynb` | `Demographics_SD_ZipCode.csv` |
-| 6 | `Merge of Census and Integrated Datasets.ipynb` | `Assistance_Demographics_Master.csv` |
-| 7 | `Notebook for Policy Annotations.ipynb` | `Policy_Annotations.csv` |
-| 8 | `TimeLag_Generation.ipynb` | `LIHEAP_lags.csv` |
-| 9 | `Merge LIHEAP and Policy Annotation.ipynb` | `TimeLag_PolicyAnnotated.csv` |
+| 1 | `Data Cleaning LIHEAP.ipynb` | `LIHEAP/LIHEAP_validated.csv` |
+| 2 | `Calfresh Data Cleaning.ipynb` | `CalFresh/CalFresh_cleaned.csv` |
+| 3 | `Food Banks Data Cleaning.ipynb` | `Food Bank/FoodBank_cleaned.csv` |
+| 4 | `Coverage Matrix + Standardization of Data Sets.ipynb` | `Integrated/Assistance_Integrated.csv` |
+| 5 | `Census_Demographic_Pull.ipynb` | `ACS/Demographics_SD_ZipCode.csv` |
+| 6 | `Merge of Census and Integrated Datasets.ipynb` | `Integrated/Assistance_Demographics_Master.csv` |
+| 7 | `Notebook for Policy Annotations.ipynb` | `Policy_TimeLag/Policy_Annotations.csv` |
+| 8 | `TimeLag_Generation.ipynb` | `LIHEAP/LIHEAP_lags.csv` |
+| 9 | `Merge LIHEAP and Policy Annotation.ipynb` | `Policy_TimeLag/TimeLag_PolicyAnnotated.csv` |
 | 10 | `TimeLag_PreliminaryCorrelations.ipynb` | preliminary lag correlations |
-| 11 | `Spatial_Analysis.ipynb` | `Zip_Segments.csv`, spatial clusters, maps |
+| 11 | `Spatial_Analysis.ipynb` | `Spatial/Zip_Segments.csv`, spatial clusters, maps |
 | 12 | `Segment Analysis by Demographics.ipynb` | segment correlations |
-| 13 | `Correlation_Analysis.ipynb` | final correlations, `Zip_Correlation_Ranking.csv`, report figures |
+| 13 | `Correlation_Analysis.ipynb` | final correlations, `Modeling/Zip_Correlation_Ranking.csv`, report figures |
+| 14 | `Predictive_Modeling.ipynb` | `Modeling/Predictive_Features.csv`, `Modeling/Feature_Dictionary.csv` |
+
+Output paths are relative to `data/`.
+
+After step 14, run `python train_models.py` from the repository root to fit the two deployment models. `scenario.py` loads them for "what if LIHEAP enrollment changes by X%?" scenarios.
 
 ## Repository layout
 
-- `notebooks/`: the analysis notebooks
+- `notebooks/`: the 14 analysis notebooks (run with `notebooks/` as the working directory)
+- `train_models.py`: fits the CalFresh and food bank models from `data/Modeling/Predictive_Features.csv` and saves them to `models/scenario_models.joblib` (created on first run)
+- `scenario.py`: scenario engine that loads those models to predict CalFresh dollars and food bank pounds under a changed LIHEAP enrollment
 - `data/`: the CSV, Excel and GeoJSON datasets the notebooks read and write, grouped by source and stage:
   - `LIHEAP/`, `CalFresh/`, `Food Bank/`: raw and cleaned program data
   - `ACS/`: census demographics by zip code
@@ -71,7 +78,8 @@ CENSUS_API_KEY=your_key_here
 
 **Folder reorganization**
 - Moved the notebooks into `notebooks/` and grouped `data/` into subfolders by source and pipeline stage.
-- Updated every notebook's data and figure paths (`../data/<subfolder>/...`, `../figures/...`) and `train_models.py`'s data path.
+- Updated every notebook's data and figure paths (`../data/<subfolder>/...`, `../figures/...`) and the data paths in `train_models.py` and `scenario.py`.
+- Added `Predictive_Modeling.ipynb` to the pipeline table and documented `train_models.py` and `scenario.py` in the repository layout.
 
 **Data folder**
 - Moved all datasets (CSV, Excel, GeoJSON) from the repository root into `data/`.
