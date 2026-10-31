@@ -22,8 +22,9 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import FunctionTransformer, StandardScaler
 
 #load in the data 
-DATA_PATH = Path("data")/"Modeling"/"Predictive_Features.csv"
-OUT = Path("models") / "scenario_models.joblib"
+APP_DIR = Path(__file__).resolve().parent
+DATA_PATH = APP_DIR.parent / "data" / "Modeling" / "Predictive_Features.csv"
+OUT = APP_DIR / "models" / "scenario_models.joblib"
 
 #define regression model features 
 CORE = ["LIHEAP_lag1", "LIHEAP_lag2", "LIHEAP_lag3", "LIHEAP_lag1_per_1k_HH",
@@ -31,7 +32,7 @@ CORE = ["LIHEAP_lag1", "LIHEAP_lag2", "LIHEAP_lag3", "LIHEAP_lag1_per_1k_HH",
 
 HISTORY = {
     "CalFresh_Dollars": ["CalFresh_lag1", "CalFresh_yoy_change_lag1"],
-    "FoodBank_Pounds": ["oodBank_lag1", "FoodBank_yoy_change_lag1", "FoodBank_lag1_missing", "Pct_Single_Parent_HH"],
+    "FoodBank_Pounds": ["FoodBank_lag1", "FoodBank_yoy_change_lag1", "FoodBank_lag1_missing", "Pct_Single_Parent_HH"],
 }
 
 BOOLEAN = ["Demo_Imputed", "FoodBank_lag1_missing"]
@@ -43,7 +44,7 @@ def linear_pipeline(features):
     bool_cols = [c for c in features if c in BOOLEAN]
     num_cols = [c for c in features if c not in log_cols + bool_cols]
     pre = ColumnTransformer([
-        ("log", Pipeline([("log1p", FunctionTransformer(np.log1p, features_names_out="one-to-one")),
+        ("log", Pipeline([("log1p", FunctionTransformer(np.log1p, feature_names_out="one-to-one")),
                           ("scale", StandardScaler())]),
                           log_cols),
                           ("num", StandardScaler(), num_cols),

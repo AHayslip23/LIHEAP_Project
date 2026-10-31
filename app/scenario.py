@@ -17,39 +17,49 @@ import joblib
 import numpy as np
 import pandas as pd 
 
-MODEL_PATH = Path("models") / "scenario_models.joblib"
-DATA_PATH = Path("data") / "Modeling" / "Predictive_Features.csv"
+APP_DIR = Path(__file__).resolve().parent
+MODEL_PATH = APP_DIR / "models" / "scenario_models.joblib"
+DATA_PATH = APP_DIR.parent / "data" / "Modeling" / "Predictive_Features.csv"
 
 #define lIHEAP scaled features
 LIHEAP_SCALED = ["LIHEAP_lag1", "LIHEAP_lag2", "LIHEAP_lag3", "LIHEAP_lag1_per_1k_HH", "LIHEAPxPoverty", "LIHEAPxRent"]
 
 #define target labels 
 TARGET_LABELS = {
-    "CalFresh_Dollars": "CalFresh_dollars",
+    "CalFresh_Dollars": "CalFresh dollars",
     "FoodBank_Pounds": "Food bank pounds"
 }
 
 def load_bundle(path=MODEL_PATH):
+    """Load the trained models. If the file is missing (first run, fresh deploy) or was saved
+    by an incompatible scikit-learn version, retrain with train_models.py and load again."""
+    if Path(path).exists():
+        try:
+            return joblib.load(path)
+        except Exception:
+            pass
+    import train_models
+    train_models.main()
     return joblib.load(path)
 
 def load_features(path=DATA_PATH):
     return pd.read_csv(path, dtype={"Zip Code": str})
 
 def apply_liheap_change(rows, pct_change, zips=None):
-        """Return a copy of rows with LIHEAP inputs scaled by (1 + pct_change/100).
+    """Return a copy of rows with LIHEAP inputs scaled by (1 + pct_change/100).
     If zips is given, only those zip codes are changed (the rest stay at baseline)."""
-        out = rows.copy()
-        mask = out["Zip Code"].isin(zips) if zips else pd.Series(True, index=out.index)
-        factor = 1 + pct_change / 100
-        for col in LIHEAP_SCALED:
-             out.loc[mask, col] = out.loc[mask, col] * factor
-        return out
+    out = rows.copy()
+    mask = out["Zip Code"].isin(zips) if zips else pd.Series(True, index=out.index)
+    factor = 1 + pct_change / 100
+    for col in LIHEAP_SCALED:
+        out.loc[mask, col] = out.loc[mask, col] * factor
+    return out
 
 def predict(bundle_entry, rows):
-     X = rows[bundle_entry["features"]].astype(float)
-     pred_log = bundle_entry["model"].predict(X)
-     q = bundle_entry["half_width_log"]
-     return pd.DataFrame({
+    X = rows[bundle_entry["features"]].astype(float)
+    pred_log = bundle_entry["model"].predict(X)
+    q = bundle_entry["half_width_log"]
+    return pd.DataFrame({
           "pred": np.expm1(pred_log),
           "lower": np.expm1(pred_log - q),
           "upper": np.expm1(pred_log + q)}, index=rows.index)
@@ -84,28 +94,28 @@ def run_scenario(bundle, feats, target, month, pct_change, zips=None, changed_zi
     
     if changed_zips:
         table.loc[~table["Zip Code"].isin(changed_zips), "Scenario LIHEAP (lag 1)"] = table["LIHEAP enrollment (lag 1)"]
-        table["Change"] = table["Scenario forecast"] - table["Baseline forecast"]
-        table["Change %"] = 100 * table["Change"] / table["Baseline forecast"]
-        table = table.sort_values("Change", ascending=False).reset_index(drop=True)
-        
-        b, s = table["Baseline forecast"].sum(), table["Scenario forecast"].sum()
-        summary = {
-                        "target": target,
-                        "model": entry["model_name"],
-                        "month": month,
-                        "pct_change": pct_change,
-                        "zips": len(table),
-                        "baseline_total": b,
-                        "scenario_total": s,
-                        "change_total": s - b,
-                        "change_pct": 100 * (s - b) / b,
-                        "zips_changed": int((table["Change"].abs() > 1e-9).sum()),
 
-                }
-        return table, summary 
+    table["Change"] = table["Scenario forecast"] - table["Baseline forecast"]
+    table["Change %"] = 100 * table["Change"] / table["Baseline forecast"]
+    table = table.sort_values("Change", ascending=False).reset_index(drop=True)
+
+    b, s = table["Baseline forecast"].sum(), table["Scenario forecast"].sum()
+    summary = {
+        "target": target,
+        "model": entry["model_name"],
+        "month": month,
+        "pct_change": pct_change,
+        "zips": len(table),
+        "baseline_total": b,
+        "scenario_total": s,
+        "change_total": s - b,
+        "change_pct": 100 * (s - b) / b,
+        "zips_changed": int((table["Change"].abs() > 1e-9).sum()),
+    }
+    return table, summary
 
 
-def sensitivity_curve(bundle, feats, target, month, pct_range=range(50, 101, 10), zips=None):
+def sensitivity_curve(bundle, feats, target, month, pct_range=range(-50, 101, 10), zips=None):
     """County (or selected-zip) total forecast across a range of LIHEAP changes."""
     rows = []
     for p in pct_range:

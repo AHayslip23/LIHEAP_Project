@@ -12,3 +12,9 @@ Assistance_Spatial.geojson
 LIHEAP_2023_2025.csv
 LIHEAP_standardized.csv
 missing_or_invalid_zip.csv
+
+# Trained dashboard models (rebuilt automatically on first run)
+app/models/*.joblib
+
+# Python cache
+__pycache__/

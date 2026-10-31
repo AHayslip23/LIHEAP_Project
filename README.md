@@ -34,13 +34,48 @@ Run the notebooks in `notebooks/` in this order, with `notebooks/` as the workin
 
 Output paths are relative to `data/`.
 
-After step 14, run `python train_models.py` from the repository root to fit the two deployment models. `scenario.py` loads them for "what if LIHEAP enrollment changes by X%?" scenarios.
+After step 14, the dashboard in `app/` can be started (see below). It trains its forecasting models from `data/Modeling/Predictive_Features.csv` the first time it runs.
+
+## Running the dashboard
+
+The interactive Streamlit dashboard lives in `app/`. Requires Python 3.12 (3.10+ should work).
+
+1. Open a terminal in the repository root:
+   ```
+   cd LIHEAP_Project
+   ```
+2. Install the packages (first time only):
+   ```
+   pip install -r app/requirements.txt
+   ```
+3. Start the app:
+   ```
+   streamlit run app/Home.py
+   ```
+4. Your browser opens at http://localhost:8501. If it doesn't, paste that address in. Pages are listed in the left sidebar.
+5. Stop the app with **Ctrl + C** in the terminal.
+
+The first time you open **Scenario Analysis**, the app trains the CalFresh and food bank models (about a minute) and saves them to `app/models/scenario_models.joblib`; later runs load that file instantly. To retrain by hand, for example after `Predictive_Features.csv` changes, run `python app/train_models.py` or delete the `.joblib` file.
+
+While the app is running, saved code changes appear after clicking **Rerun** in the browser (or pressing **R**).
+
+**Troubleshooting**
+- `'streamlit' is not recognized`: Streamlit is not installed in this Python; run step 2 or use `python -m streamlit run app/Home.py`.
+- `ModuleNotFoundError: No module named 'scenario'`: start the app from `app/Home.py`, not from a file in `app/pages/`.
+- `FileNotFoundError` for a CSV: run the command from the repository root and check that `data/Modeling/Predictive_Features.csv` exists.
+
+**Deploying to Streamlit Community Cloud:** at share.streamlit.io choose **Create app**, select this repository and branch `main`, set the main file path to `app/Home.py`, and set Python 3.12 under Advanced settings. Packages come from `app/requirements.txt`; the first visit after each deploy trains the models.
 
 ## Repository layout
 
 - `notebooks/`: the 14 analysis notebooks (run with `notebooks/` as the working directory)
-- `train_models.py`: fits the CalFresh and food bank models from `data/Modeling/Predictive_Features.csv` and saves them to `models/scenario_models.joblib` (created on first run)
-- `scenario.py`: scenario engine that loads those models to predict CalFresh dollars and food bank pounds under a changed LIHEAP enrollment
+- `app/`: the Streamlit dashboard
+  - `Home.py`: entry page (`streamlit run app/Home.py`)
+  - `pages/`: one file per dashboard component, e.g. `6_Scenario_Analysis.py`
+  - `models/`: trained models, created on first run (`scenario_models.joblib`)
+  - `train_models.py`: fits the CalFresh and food bank models from `data/Modeling/Predictive_Features.csv` and saves them to `app/models/scenario_models.joblib`
+  - `scenario.py`: scenario engine that loads those models to predict CalFresh dollars and food bank pounds under a changed LIHEAP enrollment
+  - `requirements.txt`: packages for Streamlit Community Cloud
 - `data/`: the CSV, Excel and GeoJSON datasets the notebooks read and write, grouped by source and stage:
   - `LIHEAP/`, `CalFresh/`, `Food Bank/`: raw and cleaned program data
   - `ACS/`: census demographics by zip code
@@ -75,6 +110,10 @@ CENSUS_API_KEY=your_key_here
 - Zip-level LIHEAP data is reliable only for January–July 2023; about 74% of later records lack a zip code.
 
 ## Changelog
+
+**Dashboard instructions**
+- Added a "Running the dashboard" section with setup, start-up, troubleshooting and deployment steps.
+- The scenario page now trains its models automatically on first run, so `train_models.py` no longer has to be run by hand.
 
 **Folder reorganization**
 - Moved the notebooks into `notebooks/` and grouped `data/` into subfolders by source and pipeline stage.

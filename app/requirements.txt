@@ -1,0 +1,6 @@
+streamlit
+pandas
+numpy
+scikit-learn   # pin to the version you trained with, e.g. scikit-learn==1.5.2
+plotly
+joblib
