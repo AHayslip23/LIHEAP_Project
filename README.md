@@ -111,18 +111,35 @@ CENSUS_API_KEY=your_key_here
 
 ## Changelog
 
-**Dashboard instructions**
-- Added a "Running the dashboard" section with setup, start-up, troubleshooting and deployment steps.
-- The scenario page now trains its models automatically on first run, so `train_models.py` no longer has to be run by hand.
+**Commit #10: Streamlit dashboard (`app/`)**
+- Created the `app/` folder for the dashboard: `Home.py` (entry page), `pages/6_Scenario_Analysis.py` (component 6), `requirements.txt` and `models/`.
+- Moved `scenario.py` and `train_models.py` into `app/`. Their file paths now resolve from the script's own location, so they work from any folder and on Streamlit Community Cloud.
+- Fixed bugs in `train_models.py` (`FoodBank_lag1` column name, `feature_names_out` argument) and `scenario.py` (`run_scenario` indentation, sensitivity range now −50% to +100%, "CalFresh dollars" label).
+- `scenario.py` now trains the models automatically the first time the app runs, or if the saved models can't be loaded.
+- Made the scenario page easier to present:
+  - Plain-language labels and a takeaway box that states the result in one sentence.
+  - Sensitivity chart on a fixed ±10% axis with a "Your scenario" marker.
+  - Zip chart with city names, colors for increases and decreases, and the largest changes at the top.
+  - A simpler results table (the CSV download keeps every column) and a "How this works" section.
+- Zip codes now show their city, including the 32 PO-box zips (labeled "PO box"), using `data/Spatial/Assistance_Spatial_FUll.csv`.
+- Added a "Running the dashboard" section to this README.
+- `.gitignore` now excludes trained model files (`app/models/*.joblib`) and Python cache (`__pycache__/`).
 
-**Folder reorganization**
-- Moved the notebooks into `notebooks/` and grouped `data/` into subfolders by source and pipeline stage.
-- Updated every notebook's data and figure paths (`../data/<subfolder>/...`, `../figures/...`) and the data paths in `train_models.py` and `scenario.py`.
-- Added `Predictive_Modeling.ipynb` to the pipeline table and documented `train_models.py` and `scenario.py` in the repository layout.
+**Commit #9: README update**
+- Updated the README to reflect the reorganization in Commits #6 to #8, and made a small fix to `scenario.py`.
 
-**Data folder**
+**Commit #8: Folder reorganization**
+- Moved the 14 notebooks into `notebooks/` and grouped `data/` into subfolders by source and pipeline stage (`LIHEAP/`, `CalFresh/`, `Food Bank/`, `ACS/`, `Integrated/`, `Policy_TimeLag/`, `Spatial/`, `Modeling/`).
+- Updated every notebook's data and figure paths (`../data/<subfolder>/...`, `../figures/...`).
+- Added `scenario.py`, the scenario engine for "what if LIHEAP enrollment changes by X%?" forecasts, and updated the data path in `train_models.py`.
+
+**Commit #7: Model training script**
+- Added `train_models.py`, which fits the deployment models (Random Forest for CalFresh, Linear Regression for food bank) from `Predictive_Features.csv` and saves them for the dashboard.
+
+**Commit #6: Data folder**
 - Moved all datasets (CSV, Excel, GeoJSON) from the repository root into `data/`.
 - Updated every notebook to read and write datasets in `data/` and to save charts in `figures/` (spatial maps in `figures/maps/`).
+- Updated the README's pipeline and layout sections.
 
 **Commit #2: Project deliverables added to `reports/`**
 - Replaced the three Word documents (`DataIntegration_QualityAssessment`, `Demographic_Summary_Report`, `TimeLag_Methodology`) with PDF versions.
