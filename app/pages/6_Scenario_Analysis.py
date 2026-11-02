@@ -40,6 +40,12 @@ def get_cities(po_box_zips):
     return {k: (f"{v} (PO box)" if k in po_box_zips else v) for k, v in cities.items()}
 
 
+@st.cache_data(show_spinner=False)
+def get_curve(target, month, zips):
+    """The sensitivity curve doesn't depend on the slider, so compute it once per program/month/zip set."""
+    return sensitivity_curve(get_bundle(), get_feats(), target, month, zips=list(zips) or None)
+
+
 def month_label(m):
     return pd.to_datetime(m).strftime("%B %Y")
 
@@ -50,21 +56,22 @@ zip_label = lambda z: f"{z} · {cities[z]}" if z in cities else z
 
 # ---------------------------------------------------------------- header
 st.title("What if LIHEAP enrollment changes?")
-st.write("Move the slider to see how the model's estimate of food assistance would change if LIHEAP "
+st.write("Use the slider below to see how the model's estimate of food assistance would change if LIHEAP "
          "energy-assistance enrollment had been higher or lower. Everything else about each zip code stays the same.")
 
-# ---------------------------------------------------------------- sidebar controls
-with st.sidebar:
-    st.header("Scenario settings")
-    target = st.radio("Program", list(PROGRAMS), format_func=PROGRAMS.get)
+# ---------------------------------------------------------------- scenario controls (on the page, not the sidebar)
+with st.container(border=True):
+    c1, c2 = st.columns([1, 1])
+    target = c1.radio("Program", list(PROGRAMS), format_func=PROGRAMS.get, horizontal=True)
     months = bundle[target]["months"]
-    month = st.selectbox("Month of data", months, index=len(months) - 1, format_func=month_label,
+    month = c2.selectbox("Month of data", months, index=len(months) - 1, format_func=month_label,
                          help="The model estimates this month's totals using the previous month's data.")
-    pct = st.slider("Change in LIHEAP enrollment (%)", -50, 100, 10, step=5,
-                    help="+10 means 10% more households enrolled in LIHEAP than actually were.")
-    all_zips = sorted(feats.loc[feats["Month_Year"] == month, "Zip Code"].unique())
-    zips = st.multiselect("Focus on specific zip codes (optional)", all_zips, format_func=zip_label)
-    only_selected = st.checkbox("Change enrollment only in these zip codes", value=False, disabled=not zips)
+    pct = st.slider("**Change in LIHEAP enrollment (%)** — drag to set your scenario", -50, 100, 10, step=5,
+                    format="%+d%%", help="+10 means 10% more households enrolled in LIHEAP than actually were.")
+    with st.expander("Focus on specific zip codes (optional)"):
+        all_zips = sorted(feats.loc[feats["Month_Year"] == month, "Zip Code"].unique())
+        zips = st.multiselect("Zip codes (blank = all)", all_zips, format_func=zip_label)
+        only_selected = st.checkbox("Change enrollment only in these zip codes", value=False, disabled=not zips)
 
 table, summary = run_scenario(bundle, feats, target, month, pct, zips=zips or None,
                               changed_zips=zips if (zips and only_selected) else None)
@@ -104,7 +111,7 @@ if table["Scenario LIHEAP (lag 1)"].max() > observed_liheap_range(feats):
 left, right = st.columns(2)
 with left:
     st.subheader(f"How the total responds to bigger or smaller changes")
-    curve = sensitivity_curve(bundle, feats, target, month, zips=zips or None)
+    curve = get_curve(target, month, tuple(zips))
     lim = max(10, curve["Change %"].abs().max() * 1.2)
     fig = px.line(curve, x="LIHEAP change %", y="Change %", markers=True,
                   labels={"LIHEAP change %": "Change in LIHEAP enrollment (%)",

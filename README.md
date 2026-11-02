@@ -71,11 +71,13 @@ While the app is running, saved code changes appear after clicking **Rerun** in 
 - `notebooks/`: the 14 analysis notebooks (run with `notebooks/` as the working directory)
 - `app/`: the Streamlit dashboard
   - `Home.py`: entry page (`streamlit run app/Home.py`)
-  - `pages/`: one file per dashboard component, e.g. `6_Scenario_Analysis.py`
+  - `pages/`: one file per dashboard component: `1_Map.py`, `2_Time_Series.py`, `3_Policy_Timeline.py`, `4_Correlation_Explorer.py`, `5_Forecast.py`, `6_Scenario_Analysis.py`, `7_Demographics.py`, `8_Policy_Impact.py`
+  - `utils.py`: shared data loading, sidebar filters (program, time period, policy regime, city, zip code) and download buttons
   - `models/`: trained models, created on first run (`scenario_models.joblib`)
   - `train_models.py`: fits the CalFresh and food bank models from `data/Modeling/Predictive_Features.csv` and saves them to `app/models/scenario_models.joblib`
   - `scenario.py`: scenario engine that loads those models to predict CalFresh dollars and food bank pounds under a changed LIHEAP enrollment
   - `requirements.txt`: packages for Streamlit Community Cloud
+- `test_dashboard.py`: automated check that every dashboard page loads and responds to its filters (`python test_dashboard.py`)
 - `data/`: the CSV, Excel and GeoJSON datasets the notebooks read and write, grouped by source and stage:
   - `LIHEAP/`, `CalFresh/`, `Food Bank/`: raw and cleaned program data
   - `ACS/`: census demographics by zip code
@@ -110,6 +112,44 @@ CENSUS_API_KEY=your_key_here
 - Zip-level LIHEAP data is reliable only for January–July 2023; about 74% of later records lack a zip code.
 
 ## Changelog
+
+**Commit #12: All eight dashboard components**
+
+*New pages*
+- **Map (component 1):** shades each zip code by one of nine metrics: LIHEAP, CalFresh and food bank totals or per household, poverty, unemployment and rent. Shows the top zip code, the county median and a table that includes PO-box zips with no boundary.
+- **Time Series (component 2):** a separate chart for each program with its own labeled month axis, totals or per 1,000 households, optional policy-change lines, and percentage change over the selected period.
+- **Policy Timeline (component 3):**
+  - One tab per program shows when each policy was in effect, coloured by expected effect.
+  - A program-totals chart marks each policy with a numbered badge (same-month policies share a badge) that matches a list underneath. A "Highlight a policy" option shades one policy's window.
+- **Correlation Explorer (component 4):**
+  - Controls for lag (0–3 months), outcome, totals vs per household, Spearman vs Pearson, and policy regime.
+  - Shows the correlation with a 95% confidence interval and a one-dot-per-zip scatter with a trend line and readable log axes.
+  - Also shows which lag is strongest, a comparison across policy regimes, and the zip correlation ranking.
+- **Forecast (component 5):**
+  - County actual vs predicted, and each zip code's actual vs predicted with 90% ranges.
+  - Held-out accuracy compared with the "same as last month" baseline.
+  - A step-by-step "What if a zip code had more or fewer LIHEAP enrollees?" tool that labels inputs by month (for example "Households enrolled in Jul 2023").
+- **Demographics (component 7):** splits zip codes into thirds, quarters or fifths by poverty, unemployment, rent, share aged 65+ or single-parent households. A separate chart per program has clear per-household axis labels and value labels, followed by a scatter of every zip code and a drill-down table for one group.
+- **Policy Impact (component 8):**
+  - Before vs after comparison for any policy change, with a 1–6 month window.
+  - Uses only zip codes with data in both windows. Each program's chart shows dashed before and after averages next to the percentage change.
+  - A "Read with care" note appears when the trend inside the window runs against the average (for example, LIHEAP rose 15.1% on average after Emergency Allotments ended but was falling by June 2023).
+  - Includes the spread of changes across zip codes.
+
+*Shared features*
+- Added `app/utils.py` with shared data loading and sidebar filters for program type, time period, policy regime, city and zip code.
+  - Filters carry over between pages, and there is a button to clear them.
+  - Every page has a CSV download button.
+  - It also holds shared chart styling: clean axes and readable number labels such as $10K, $1M and 6M lb.
+- Rewrote `Home.py` as an overview with readable headline numbers (for example "92 months of data, Jan 2018 – Aug 2025" and "7 months of LIHEAP data, Jan – Jul 2023"), a page guide, how the filters work, key findings and data sources.
+- Added `data/Spatial/SD_Zipcodes_simplified.geojson`, a lighter (121 KB) copy of the zip boundaries so the map loads quickly.
+
+*Scenario Analysis updates*
+- Moved the program, month and "Change in LIHEAP enrollment (%)" slider from the sidebar into a box at the top of the page; zip-code options are in an expandable section.
+- Cached the sensitivity curve, so moving the slider updates in under a second (it took about 5 seconds before).
+
+*Testing*
+- Added `test_dashboard.py`, which opens every page and changes its main filters and controls without a browser (`python test_dashboard.py`). All 38 checks pass.
 
 **Commit #10: Streamlit dashboard (`app/`)**
 - Created the `app/` folder for the dashboard: `Home.py` (entry page), `pages/6_Scenario_Analysis.py` (component 6), `requirements.txt` and `models/`.
