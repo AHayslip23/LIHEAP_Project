@@ -10,7 +10,7 @@ st.title("Policy timeline")
 st.write("Major federal and state policy changes affecting LIHEAP, CalFresh and food banks, with the months each "
          "took effect. The chart below lays the same dates over the program's monthly totals.")
 
-f = u.sidebar_filters(zips=True, regime=False, default_period=("2019-01", "2025-08"))
+f = u.sidebar_filters(zips=True, regime=False)
 events = u.load_events()
 lo, hi = pd.to_datetime(f["period"][0]), pd.to_datetime(f["period"][1]) + pd.offsets.MonthEnd(0)
 ev = events[events["program"].isin(f["programs"]) & (events["End"] >= lo) & (events["Start"] <= hi)].copy()

@@ -7,6 +7,7 @@ Data sources (all under data/):
     Policy_TimeLag/Policy_Events.csv      policy changes with effective dates
     Spatial/SD_Zipcodes_simplified.geojson   zip boundaries for the map
 """
+import inspect
 import json
 import math
 from pathlib import Path
@@ -168,9 +169,14 @@ def _clear_filters():
         st.session_state[f"w_{k}"] = []
 
 
+def _set_period(lo, hi):
+    """Quick-pick buttons: store the new period and start a fresh slider (new key) that opens at it."""
+    st.session_state["period"] = (lo, hi)
+    st.session_state["period_version"] = st.session_state.get("period_version", 0) + 1
+
+
 def sidebar_filters(program=True, multi_program=True, period=True, regime=True, zips=True,
-                    month_range=("2018-01", "2025-08"), default_period=("2022-01", "2024-12"),
-                    default_programs=("LIHEAP", "CalFresh", "Food bank")):
+                    month_range=("2018-01", "2025-08"), default_programs=("LIHEAP", "CalFresh", "Food bank")):
     """Render the shared filters. Returns a dict with only the filters this page uses."""
     out = {}
     p = load_panel()
@@ -187,15 +193,29 @@ def sidebar_filters(program=True, multi_program=True, period=True, regime=True, 
                 k = _persist("program", default_programs[0], valid=lambda v: v in PROGRAMS)
                 out["program"] = st.radio("Program type", list(PROGRAMS), key=k, on_change=_save, args=("program",))
         if period:
-            k = _persist("period", default_period,
-                         valid=lambda v: isinstance(v, (tuple, list)) and len(v) == 2 and v[0] <= v[1])
-            lo, hi = st.session_state[k]
-            if lo not in months or hi not in months:  # stored range outside this page's months
-                st.session_state[k] = (max(lo, months[0]) if lo in months else months[0],
-                                       min(hi, months[-1]) if hi in months else months[-1])
-            out["period"] = tuple(st.select_slider("Time period", options=months, key=k, format_func=month_label,
-                                                   on_change=_save, args=("period",)))
+            # One shared time period for every page (default: all months). The slider gets a key per page and
+            # starts from the stored period, so the choice made on one page carries over to the next.
+            saved = st.session_state.get("period")
+            if not (isinstance(saved, (tuple, list)) and len(saved) == 2 and saved[0] <= saved[1]):
+                saved = (months[0], months[-1])
+            lo = min(max(saved[0], months[0]), months[-1])
+            hi = max(min(saved[1], months[-1]), months[0])
+            lo = next(m for m in months if m >= lo)
+            hi = [m for m in months if m <= hi][-1]
+            # Key per page (and per quick-pick click): a new key makes Streamlit draw a fresh slider at value=(lo, hi)
+            wkey = f"w_period_{Path(inspect.stack()[1].filename).stem}_{st.session_state.get('period_version', 0)}"
+            out["period"] = tuple(st.select_slider("Time period", options=months, value=(lo, hi), key=wkey,
+                                                   format_func=month_label))
             st.session_state["period"] = out["period"]
+            b1, b2, b3 = st.columns(3)
+            b1.button("All", on_click=_set_period, args=(months[0], months[-1]), width="stretch",
+                      help=f"{month_label(months[0])} – {month_label(months[-1])}")
+            b2.button("2023", on_click=_set_period, args=("2023-01", "2023-12"), width="stretch",
+                      help="Jan – Dec 2023, the year with zip-level LIHEAP data (Jan – Jul)")
+            last12 = months[-12] if len(months) >= 12 else months[0]
+            b3.button("1 year", on_click=_set_period, args=(last12, months[-1]), width="stretch",
+                      help=f"{month_label(last12)} – {month_label(months[-1])}")
+            st.caption("The same time period applies on every page.")
         if regime:
             k = _persist("regimes", [])
             out["regimes"] = st.multiselect("Policy regime (blank = all)", REGIME_NAMES, key=k,

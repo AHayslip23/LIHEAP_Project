@@ -12,7 +12,7 @@ st.title("Demographic breakdown")
 st.write("Zip codes are split into three equal groups (low, middle, high) by the measure you choose. "
          "Compare how much assistance each group receives per household, then drill into one group.")
 
-f = u.sidebar_filters(default_period=("2023-01", "2023-07"))
+f = u.sidebar_filters()
 panel = u.apply_filters(u.load_panel(), f)
 
 c1, c2 = st.columns(2)
@@ -107,7 +107,26 @@ if not np.isnan(r["r"]):
 
 # ---------------------------------------------------------------- drill-down
 st.subheader("Drill down into one group")
-pick = st.radio("Group", order, horizontal=True)
+measure = u.DEMOGRAPHICS[demo]
+measure_l = measure.split(" (")[0].lower()
+unit_sfx = "%" if "(%)" in measure else ""
+fmt_v = (lambda v: f"${v:,.0f}") if demo == "Median_Gross_Rent" else (lambda v: f"{v:,.1f}{unit_sfx}")
+size_word = {3: "thirds", 4: "quarters", 5: "fifths"}[n_groups]
+st.markdown(
+    f"**What the groups mean:** all {len(z)} zip codes with census data are ranked from lowest to highest "
+    f"{measure_l} and split into {size_word} with about the same number of zip codes in each. "
+    f"**{names[0]}** is the {size_word[:-1]} with the lowest {measure_l} and **{names[-1]}** the {size_word[:-1]} with the highest. "
+    "The numbers in brackets are each group's range.")
+gt = (z.groupby("Group label", observed=True)
+       .agg(zips=("Zip", "count"), lo=(demo, "min"), hi=(demo, "max"), med=(demo, "median"))
+       .reindex(order).reset_index())
+st.dataframe(pd.DataFrame({
+    "Group": [g.split(" (")[0] for g in gt["Group label"]],
+    f"{measure} range": [f"{fmt_v(a)} to {fmt_v(b)}" for a, b in zip(gt["lo"], gt["hi"])],
+    "Typical zip code": [fmt_v(m) for m in gt["med"]],
+    "Zip codes": gt["zips"],
+}), hide_index=True, width="stretch")
+pick = st.radio("Show the zip codes in group", order, horizontal=True)
 sub = z[z["Group label"] == pick].sort_values(demo, ascending=False)
 cols = ["Zip", "City", demo, "Total_Households"] + [f"{p} per HH" for p in f["programs"]]
 show = sub[cols].round({"Total_Households": 0}).rename(columns={demo: u.DEMOGRAPHICS[demo], "Total_Households": "Households",

@@ -10,7 +10,7 @@ st.title("Map: where is assistance concentrated?")
 st.write("Each zip code is shaded by the metric you choose, summarized over the time period in the sidebar. "
          "Darker means more. Hover over a zip code for its numbers.")
 
-f = u.sidebar_filters(program=False, default_period=("2023-01", "2023-07"))
+f = u.sidebar_filters(program=False)
 panel = u.apply_filters(u.load_panel(), f)
 
 # label: (column, unit, divisor applied to the monthly average)
@@ -64,7 +64,8 @@ else:
     top = mapped.sort_values("value", ascending=False)
     k1, k2, k3 = st.columns(3)
     k1.metric("Zip codes shown", f"{len(mapped)}")
-    k2.metric("Highest", f"{top.iloc[0]['Zip']} · {top.iloc[0]['City']}")
+    k2.metric("Highest zip code", f"{top.iloc[0]['Zip']}")
+    k2.caption(f"{top.iloc[0]['City']} · {top.iloc[0]['value']:,.1f} {unit}")
     k3.metric("County median", f"{mapped['value'].median():,.1f} {unit}")
 
 missing = by_zip[~by_zip["Zip"].isin(geo_zips)]

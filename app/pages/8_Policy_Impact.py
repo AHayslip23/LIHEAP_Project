@@ -1,7 +1,6 @@
 """Component 8: Policy impact view (compare metrics before and after major policy changes)."""
 import numpy as np
 import pandas as pd
-import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 
@@ -127,14 +126,8 @@ if zip_rows:
     progs = list(zr["Program"].unique())
     prog = st.selectbox("Program", progs, index=progs.index("CalFresh") if "CalFresh" in progs else 0)
     zp = zr[zr["Program"] == prog].copy()
-    clip = zp["Change %"].clip(-100, 200)
-    fig2 = px.histogram(zp.assign(**{"Change % (capped)": clip}), x="Change % (capped)", nbins=30,
-                        color_discrete_sequence=[u.PROGRAMS[prog]["color"]],
-                        labels={"Change % (capped)": "Change after vs before (%)"})
-    fig2.add_vline(x=0, line_color="#222")
-    fig2.update_layout(height=320, yaxis_title="Zip codes", margin=dict(t=10))
-    st.plotly_chart(fig2, width="stretch")
-    st.caption(f"Median zip change: {zp['Change %'].median():+.1f}%. Values beyond −100% to +200% are grouped at the edges.")
+    st.caption(f"Median zip-code change: {zp['Change %'].median():+.1f}%. "
+               f"{int((zp['Change %'] > 0).sum())} of {len(zp)} zip codes rose. Sorted from largest fall to largest rise.")
     unit = u.PROGRAMS[prog]["unit"]
     show = zp.sort_values("Change %")[["Zip", "City", "Before", "After", "Change %"]].round({"Before": 0, "After": 0})
     show = show.rename(columns={"Before": f"Before, monthly avg ({unit})", "After": f"After, monthly avg ({unit})"})

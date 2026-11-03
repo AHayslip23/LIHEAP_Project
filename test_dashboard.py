@@ -49,12 +49,21 @@ at.radio[0].set_value("Per 1,000 households")
 run(at, "Time Series: per 1,000 households")
 at.sidebar.multiselect(key="w_regimes").set_value(["Emergency Allotments ended"])
 run(at, "Time Series: regime filter")
-at.sidebar.button[0].click()
+[b for b in at.sidebar.button if b.label.startswith("Clear")][0].click()
 run(at, "Time Series: clear filters button")
+
+# Time period: the "2023" quick-pick should carry over to the next page
+[b for b in at.sidebar.button if b.label == "2023"][0].click()
+run(at, "Time Series: '2023' period button")
 
 # 3. Policy timeline
 at.switch_page("pages/3_Policy_Timeline.py")
 run(at, "Policy Timeline: default")
+period = at.sidebar.select_slider[0].value
+print(f"      period carried over from Time Series: {period}")
+results.append(tuple(period) == ("2023-01", "2023-12"))
+[b for b in at.sidebar.button if b.label == "All"][0].click()
+run(at, "Policy Timeline: 'All' period button")
 at.selectbox[0].set_value("Food bank")
 run(at, "Policy Timeline: overlay food bank")
 

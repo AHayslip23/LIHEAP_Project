@@ -139,7 +139,7 @@ r1.metric(f"{u.month_label(month)} forecast, actual enrollment", u.fmt_value(p_b
 r2.metric(f"{u.month_label(month)} forecast, your numbers", u.fmt_value(p_new["pred"], unit),
           f"{100 * (p_new['pred'] / p_base['pred'] - 1):+.2f}%")
 r3.metric("90% range for your forecast",
-          f"{u.fmt_value(p_new['lower'], unit)} – {u.fmt_value(p_new['upper'], unit)}".replace("$", "\\$"))
+          f"{u.compact(p_new['lower'], unit)} – {u.compact(p_new['upper'], unit)}".replace("$", "\\$"))
 st.caption(f"What actually happened in {u.month_label(month)}: {u.fmt_value(base[target].iloc[0], unit)}. "
            "Changes are usually small because last month's value matters far more to the model than LIHEAP. "
            "For county-wide what-if changes, use the Scenario Analysis page.")
