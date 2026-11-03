@@ -113,6 +113,23 @@ CENSUS_API_KEY=your_key_here
 
 ## Changelog
 
+**Commit #13: Dashboard fixes and clearer demographic groups**
+
+*Time period filter (`app/utils.py`)*
+- Fixed the default time period. Every page now opens with all months that have data, instead of page-specific defaults (Map and Demographics opened at Jan–Jul 2023, Policy Timeline at Jan 2019–Aug 2025, other pages at Jan 2022–Dec 2024).
+- One time period is now shared across all pages, so a range chosen on one page carries over to the next.
+- Added three quick-pick buttons under the slider: **All** (every month), **2023** (Jan–Dec 2023, the year with zip-level LIHEAP data) and **1 year** (the latest 12 months).
+
+*Page updates*
+- **Demographics:** the "Drill down into one group" section now explains what the groups mean. Zip codes are ranked by the chosen measure and split into thirds, quarters or fifths of about equal size (Low / Middle / High, or Lowest to Highest). A new table shows each group's range, its typical (median) zip code and how many zip codes it holds.
+- **Policy Impact:** removed the histogram of zip-code changes. A caption now gives the median zip-code change and how many zip codes rose, above the table sorted from largest fall to largest rise.
+- **Map:** the top metric now reads "Highest zip code", with its city and value underneath.
+- **Forecast:** the 90% range for a what-if forecast uses compact numbers (for example $1.2M) so it fits on one line.
+
+*Documentation and testing*
+- Added dashboard screenshots to `docs/images/` (`fig00_architecture.png` to `fig11_policy_impact.png`) for the user guide.
+- `test_dashboard.py` now checks that the **2023** button sets Jan–Dec 2023, that the period carries over from Time Series to Policy Timeline, and that **All** resets it.
+
 **Commit #12: All eight dashboard components**
 
 *New pages*
