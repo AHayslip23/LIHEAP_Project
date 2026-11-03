@@ -114,7 +114,7 @@ CENSUS_API_KEY=your_key_here
 ## Changelog
 
 **Commit #14: Data Sync**
--Set the data files in ACS and Archive Folder to match what is in the google drive 
+- Set the data files in ACS and Archive Folder to match what is in the google drive 
 
 
 **Commit #13: Dashboard fixes and clearer demographic groups**
