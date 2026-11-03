@@ -113,6 +113,9 @@ CENSUS_API_KEY=your_key_here
 
 ## Changelog
 
+**Commit 15: Documentation**
+- Created documentation folder and included the files "LIHEAP_Dashboard_UserGuide.docx" and "LIHEAP_Dashboard_TechnicalDocumentation.docx"
+
 **Commit #14: Data Sync**
 - Set the data files in ACS and Archive Folder to match what is in the google drive 
 
